@@ -1,0 +1,12 @@
+//binary search for cnt of how many items are <= x.
+
+int BS(int arr[], int left, int right, int x) {
+    if (left > right) {
+        return 0;
+    }
+    int mid = left + (right - left) / 2;
+    if (arr[mid] > x) {
+        return BS(arr, left, mid - 1, x);
+    }
+    return mid - left + 1 + BS(arr, mid + 1, right, x);
+}
